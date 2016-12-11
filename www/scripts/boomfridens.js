@@ -16,12 +16,12 @@ BoomFridens.prototype = {
         this.socket = io.connect();
         this.socket.on('connect', function() {
             //连接到服务器后，显示昵称输入框
-            document.getElementById('info').textContent = '-=设置一个属于你自己的昵称=-';
+            document.getElementById('info').textContent = '-=起个名字吧=-';
             document.getElementById('nickWrapper').style.display = 'block';
             document.getElementById('nicknameInput').focus();
         });
         this.socket.on('nickExisted', function() {
-            document.getElementById('info').textContent = '昵称已被占用, 请重新设置.';
+            document.getElementById('info').textContent = '名字被抢注了, 再起一个.';
         });
         this.socket.on('loginSuccess', function() {
             document.title = 'boomfridens | ' + document.getElementById('nicknameInput').value;
